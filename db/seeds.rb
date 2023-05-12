@@ -9,3 +9,5 @@ product = Product.new(name: "Manchester United Home Jersey 2022/23", price: 120,
 product.save
 product = Product.new(name: "Manchester United Away Jersey 2022/23", price: 120, image_url: "https://m.media-amazon.com/images/I/61c1YoEhrmL._AC_UX679_.jpg", description: "Condition: Brand new!! Any nameplate available at $20!")
 product.save
+product = Product.new(name: "Manchester United Third Jersey 2022/23", price: 120, image_url: "https://cdn.shopify.com/s/files/1/0659/9347/products/HE2981_2_APPAREL_Photography_Front-Center-View_white_1024x1024.jpg?v=1667409633", description: "Condition: Brand new!! Any nameplate available at $20!")
+product.save
