@@ -22,4 +22,8 @@ class Product < ApplicationRecord
     tot = price + tax
     return tot
   end
+
+  def supplier
+    Supplier.find_by(id: supplier_id)
+  end
 end
