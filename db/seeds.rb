@@ -5,9 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-product = Product.new(name: "Manchester United Home Jersey 2022/23", price: 120, image_url: "http://t0.gstatic.com/images?q=tbn:ANd9GcReOpF1YnXvDfr1dDVZ4CazAdJJjDU42WptiZShWZEKqpe41sD1", description: "Condition: Brand new!! Any nameplate available at $20!")
-product.save
-product = Product.new(name: "Manchester United Away Jersey 2022/23", price: 120, image_url: "https://m.media-amazon.com/images/I/61c1YoEhrmL._AC_UX679_.jpg", description: "Condition: Brand new!! Any nameplate available at $20!")
-product.save
-product = Product.new(name: "Manchester United Third Jersey 2022/23", price: 120, image_url: "https://cdn.shopify.com/s/files/1/0659/9347/products/HE2981_2_APPAREL_Photography_Front-Center-View_white_1024x1024.jpg?v=1667409633", description: "Condition: Brand new!! Any nameplate available at $20!")
-product.save
+supplier = Supplier.create!(name: "Adidas", email: "adidas@gmail.com", phone_number: "123-123-1234")
+product = Product.create!({name: "Manchester United Home Jersey 2022/23", price: 120, description: "Condition: Brand new!! Any nameplate available at $20!", inventory: 11, supplier_id: supplier.id})
+Image.create(url: "https://www.soccerpro.com/wp-content/uploads/h13881_adidas_manu_home_jsy_2022_23_01-1024x1024.jpg", product_id: product.id)
+product = Product.create!({name: "Manchester United Away Jersey 2022/23", price: 120, description: "Condition: Brand new!! Any nameplate available at $20!", inventory: 5, supplier_id: supplier.id})
+Image.create(url: "https://m.media-amazon.com/images/I/61c1YoEhrmL._AC_UX679_.jp", product_id: product.id)
+product = Product.create!({name: "Manchester United Third Jersey 2022/23", price: 120, description: "Condition: Brand new!! Any nameplate available at $20!", inventory: 6, supplier_id: supplier.id})
+Image.create(url: "https://assets.adidas.com/images/w_600,f_auto,q_auto/29e901e4835945bf87baaebc00d7e249_9366/Manchester_United_22-23_Third_Mini_Kit_Green_H64063.jpg", product_id: product.id)
+product = Product.create!({name: "Manchester United Soccer Ball", price: 30, description: "Adidas size 5 soccer ball with Manchester United decal", inventory: 16, supplier_id: supplier.id})
+Image.create(url: "https://m.media-amazon.com/images/I/41IXs27qDfL.jpg", product_id: product.id)
+product = Product.create!({name: "Adidas Manchester United Red Cap", price: 35, description: "A red soccer hat for Manchester United. Custom name on side available for $12", inventory: 15, supplier_id: supplier.id})
+Image.create(url: "https://assets.adidas.com/images/w_600,f_auto,q_auto/07d90c6a47b14774a8efade301456516_9366/Manchester_United_Baseball_Cap_Red_H62461_01_standard.jpg", product_id: product.id)

@@ -13,11 +13,12 @@ class ProductsController < ApplicationController
     @product = Product.create(
       name: params["name"],
       price: params["price"],
-      image_url: params["image_url"],
       description: params["description"],
+      supplier_id: params["supplier_id"]
     )
 
     if @product.valid?
+      Image.create(product_id: @product.id, url: params["image_url"])
       render :show
     else
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
@@ -29,7 +30,6 @@ class ProductsController < ApplicationController
     @product.update(
       name: params["name"] || @product.name,
       price: params["price"] || @product.price,
-      image_url: params["image_url"] || @product.image_url,
       description: params["description"] || @product.description,
     )
     if @product.valid?
@@ -42,6 +42,7 @@ class ProductsController < ApplicationController
   def destroy
     product = Product.find_by(id: params["id"])
     product.destroy
+    
     render json: { message: "Product destroyed successfully"}
   end
 end
