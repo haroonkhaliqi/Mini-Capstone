@@ -25,4 +25,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_admin
+    unless current_user
+      render json: {}, status: :unauthorized
+    end
+  end
 end
