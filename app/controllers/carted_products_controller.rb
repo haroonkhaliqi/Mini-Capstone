@@ -5,14 +5,13 @@ class CartedProductsController < ApplicationController
       product_id: params["product_id"],
       quantity: params["quantity"],
       status: "carted",
-      order_id: params["order_id"]
     )
 
     render :show
   end
 
   def index
-    @carted_products = CartedProduct.all
+    @carted_products =  current_user.carted_products.where(status: "carted")
 
     render :index
   end
